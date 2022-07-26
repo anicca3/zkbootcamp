@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{amsmath}
+
+\topmargin=-1in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6in
+\textheight=9.0in
+
+\title{ZK Bootcamp: Homework 1}
+\author{Kuriakin Zeng}
+\date\today
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\section*{Math Introduction}
+
+\subsection*{Problem 1}
+Working with the following set of Integers $S = \{0,1,2,3,4,5,6\}$, what is:
+\begin{itemize}
+\item $4+4 \equiv 1 \pmod 7$
+\item $3 \cdot 5 \equiv 1 \pmod 7$
+\item By Fermat's Little Theorem, $3^{-1} \equiv 3^{7-2} \pmod 7 \equiv 5 \pmod 7$
+%\item $3^{-1} \equiv 5$ 
+\end{itemize}
+\subsection*{Problem 2}
+$S = \{0, 1, 2, 3, 4, 5, 6\}$ and operation $+$ is a group.
+\begin{proof}
+For any $a,b,c \in S$
+\begin{itemize}
+\item Closure. It's easy to see that $a+b \pmod 7 \in S$
+\item Associativity. $S$ is a subset of integers, thus $(a+b)+c = a+(b+c)$
+\item Identity. The identity element is 0 since $a + 0 = a$
+\item Inverse element. It's easy to see that, by FLT, $-a \equiv 5a \pmod 7$ and $-a + 5a = 4a \pmod 7 \in S$
+\end{itemize}
+\end{proof}
+\subsection*{Problem 3}
+$-13 \pmod 5 \equiv 2 \pmod 5$
+
+\section*{Use cases of zkp}
+\begin{itemize}
+\item Authenticate users without exchanging secret information such as passwords
+\item Allow one to prove that they satisfy a requirement without revealing the data itself. For example, proving that one's income is in admissable range for a loan
+\item Allow voters to vote anonymously without compromising the legitimacy of the votes
+\end{itemize}
+However, zkp has a few challenges.
+\begin{itemize}
+\item As demonstrated by the ball-picking example, the probability of the prover lying decreases with each iteration but ZKP's don't guarantee 100\% that the prover isn't lying
+\item zkps require many interactions between the verifier and the prover in interactive ZKP's or require a great deal of computations in non-interactive ZKP's. They may not be suitable for slow or mobile devices.
+\end{itemize}
+
+\clearpage %Gives us a page break before the next section. Optional.
+
+\end{document}
